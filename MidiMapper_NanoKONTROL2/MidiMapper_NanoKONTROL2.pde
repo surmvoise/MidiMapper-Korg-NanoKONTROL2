@@ -38,9 +38,11 @@ void setup() {
   w = width;
   h = height;
   cSize = int(w/(cols+1)/2);
-  //CColor colors = new CColor();
-  //colors.setActive(1);
 
+  /*
+   give each layout colomn and row a absolute x and y
+   in order to easily place controller in a layout grid
+   */
   for (int x = 0; x < layoutX.length; x++) {
     for (int y = 0; y < layoutY.length; y++) {
       layoutX[x] = int(w/(cols+1) * (x+1));
@@ -50,19 +52,18 @@ void setup() {
 
 
   cp5 = new ControlP5( this );
-  cp5.setPosition(-cSize/2, -cSize/2);
-  //cp5.getAll().alignLabel(CENTER);
-  //cp5.setColor(colors);
-  //cp5.begin(cp5.addTab("a"));
+  cp5.setPosition(-cSize/2, -cSize/2); // serves like rectmode CENTER
+  // I'd like to align all the labels at once to the center, but don't know how
+  //cp5.getAll().alignLabel(CENTER); 
+
   cp5.begin();
 
-  final String device = "SLIDER/KNOB";
 
+  // add controllers according to those on the nanoKONTROL2
 
+  int counter = 1; // in order to number the controller independently from their location
 
-  int counter = 1;
   for (int i = 6; i < 21; i += 2) {
-
     cp5.addKnob("knob"+(counter))
       .setPosition(layoutX[i], layoutY[0])
       .setRadius(cSize/2)
@@ -72,7 +73,6 @@ void setup() {
   }
   counter = 1;
   for (int i = 6; i < 21; i += 2) {
-
     cp5.addSlider("slider"+(counter))
       .setPosition(layoutX[i], layoutY[1])
       .setSize(cSize, layoutY[3]-layoutY[1])
@@ -80,6 +80,7 @@ void setup() {
       ;
     counter++;
   }
+
   counter = 1;
   for (int i = 5; i < 20; i += 2) {
     cp5.addBang("s"+(counter))
@@ -113,19 +114,18 @@ void setup() {
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
     ;
-  midimapper.put( ref( device, 40), "trackP" );
   cp5.addBang("trackN")
     .setPosition(layoutX[1], layoutY[1])
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
     ;
 
-
   cp5.addBang("cycle")
     .setPosition(layoutX[0], layoutY[2])
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
     ;
+
   cp5.addBang("set")
     .setPosition(layoutX[2], layoutY[2])
     .setSize(cSize, cSize)
@@ -141,7 +141,6 @@ void setup() {
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
     ;
-
 
   cp5.addBang("rewind")
     .setPosition(layoutX[0], layoutY[3])
@@ -169,22 +168,13 @@ void setup() {
     .setLabelVisible(labelVisibility)
     ;
 
-
-  //cp5.addSlider("a-2").setPosition(20, 160).setSize(200, 20);
-  //cp5.addSlider("a-3").setPosition(20, 200).setSize(200, 20);
-  //cp5.addToggle("a-4").setPosition(280, 120).setSize(100, 20);
-  //cp5.addButton("a-5").setPosition(280, 160).setSize(100, 20);
-  //cp5.addBang("a-6").setPosition(280, 200).setSize(100, 20);
   cp5.end();
 
-  //cp5.begin(cp5.addTab("b"));
-  //cp5.addSlider("b-1").setPosition(20, 120).setSize(200, 20);
-  //cp5.addSlider("b-2").setPosition(20, 160).setSize(200, 20);
-  //cp5.addSlider("b-3").setPosition(20, 200).setSize(200, 20);
-  //cp5.end();
 
+  // all the midi inputs are mapped to controllers 
+  final String device = "SLIDER/KNOB";
 
-  //midimapper.clear();
+  midimapper.clear();
 
   for (int i = 0; i < 8; i++) {
     midimapper.put( ref( device, i + 16 ), "knob"+(i+1) );
@@ -217,17 +207,6 @@ void setup() {
   midimapper.put( ref( device, 41 ), "play" );
   midimapper.put( ref( device, 45 ), "rec" );
 
-
-  //  midimapper.put( ref( device, 0 ), "a-1" );
-  //  midimapper.put( ref( device, 1 ), "a-2" );
-  //  midimapper.put( ref( device, 2 ), "a-3" );
-  //  midimapper.put( ref( device, 32 ), "a-4" );
-  //  midimapper.put( ref( device, 48 ), "a-5" );
-  //  midimapper.put( ref( device, 64 ), "a-6" );
-
-  //  midimapper.put( ref( device, 16 ), "b-1" );
-  //  midimapper.put( ref( device, 17 ), "b-2" );
-  //  midimapper.put( ref( device, 18 ), "b-3" );
 
   boolean DEBUG = false;
 
@@ -295,6 +274,7 @@ String ref(String theDevice, int theIndex) {
 void draw() {
   background( 0 );
 
+  // for testing purpose
   if (trackP) {
     ellipse(random(width), random(height), 10, 10);
   }
