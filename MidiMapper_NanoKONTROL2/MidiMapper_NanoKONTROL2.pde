@@ -152,7 +152,11 @@ void setup() {
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
     ;
-  cp5.addBang("stop")
+  cp5.addBang("stop!") 
+  // giving name "stop" (without the !) here would cause the program to call 
+  // a method which stops the ControlListener I guess or something that 
+  // results in the cp5 not responding to anything anymore. the sketch 
+  // however doesn't crash. a bug??
     .setPosition(layoutX[2], layoutY[3])
     .setSize(cSize, cSize)
     .setLabelVisible(labelVisibility)
@@ -203,7 +207,7 @@ void setup() {
 
   midimapper.put( ref( device, 43 ), "rewind" );
   midimapper.put( ref( device, 44 ), "ff" );
-  midimapper.put( ref( device, 42 ), "stop" );
+  midimapper.put( ref( device, 42 ), "stop!" );
   midimapper.put( ref( device, 41 ), "play" );
   midimapper.put( ref( device, 45 ), "rec" );
 
