@@ -6,6 +6,7 @@ class ControlFrame extends PApplet {
   PApplet parent;
   ControlP5 cp5;
 
+  NK2 nk2;
 
   int cols = 21;
   int rows = 4;
@@ -33,6 +34,7 @@ class ControlFrame extends PApplet {
     cp5 = new ControlP5(this);
 
     cSize = int(w/(cols+1)/2);
+    nk2 = new NK2(new MidiMapper(this));
 
     /*
    give each layout colomn and row a absolute x and y

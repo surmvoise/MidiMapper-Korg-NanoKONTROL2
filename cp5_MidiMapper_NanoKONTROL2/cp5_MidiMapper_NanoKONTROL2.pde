@@ -3,7 +3,6 @@ import controlP5.*;
 
 
 ControlFrame cf;
-NK2 nk2;
 
 
 float a;
@@ -18,13 +17,12 @@ void setup() {
   surface.setLocation(420, 10);
 
 
-  nk2 = new NK2(new MidiMapper(this));
 }
 
 void draw() {
   background(0);
 
-  println(nk2.slider1);
+  //println(nk2.slider1);
   rectMode(CENTER);
   rotate(map(a, 0, 100, 0, TWO_PI));
   translate(width/2, height/2);
