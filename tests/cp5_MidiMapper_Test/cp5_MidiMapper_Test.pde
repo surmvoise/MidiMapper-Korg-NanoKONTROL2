@@ -16,7 +16,7 @@ void setup() {
   // parameters:
   // name, minValue, maxValue, defaultValue, x, y, width, height
   cp5.addKnob("a")
-    .setPosition(100, 50)
+    .setPosition(50, 50)
     .setRange(0, 127)
     ;
 }
