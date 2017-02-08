@@ -5,10 +5,10 @@ class NK2 {
 
   float slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8;
   float knob1, knob2, knob3, knob4, knob5, knob6, knob7, knob8;
-  boolean s1, s2, s3, s4, s5, s6, s7, s8;
-  boolean m1, m2, m3, m4, m5, m6, m7, m8;
-  boolean r1, r2, r3, r4, r5, r6, r7, r8;
-  boolean trackP, trackN, cycle, set, markerP, markerN, rewind, ff, stop_, play, rec;
+  float s1, s2, s3, s4, s5, s6, s7, s8;
+  float m1, m2, m3, m4, m5, m6, m7, m8;
+  float r1, r2, r3, r4, r5, r6, r7, r8;
+  float trackP, trackN, cycle, set, markerP, markerN, rewind, ff, stop_, play, rec;
 
   MidiMapper nk2Mapper;
 

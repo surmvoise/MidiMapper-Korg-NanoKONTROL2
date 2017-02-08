@@ -28,7 +28,7 @@ class ControlFrame extends PApplet {
   public void settings() {
     size(w, h);
   }
-
+   
   public void setup() {
     surface.setLocation(displayWidth-w, displayHeight-h-20);
     cp5 = new ControlP5(this);
