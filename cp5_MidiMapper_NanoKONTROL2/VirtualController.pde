@@ -48,16 +48,22 @@ class NK2 {
 
 
 
+    cp5.setPosition(0, 0); // serves like rectmode CENTER
 
-    cp5.setPosition(-cSize/2, -cSize/2); // serves like rectmode CENTER
+    //cp5.setPosition(-cSize/2, -cSize/2); // serves like rectmode CENTER
     // I'd like to align all the labels at once to the center, but don't know how
     //cp5.getAll().alignLabel(CENTER); 
 
+    cp5.addTab("nanoKONTROL2");
+
 
     Group nk2Group = cp5.addGroup("nanoKONTROL2")
-      .setPosition(100, 100)
-      .setBackgroundHeight(100)
+      .setPosition(10, 10)
+      .setSize(w, h)
+      .setBackgroundHeight(h)
       .setBackgroundColor(color(255, 50))
+      .moveTo("nanoKONTROL2")
+      .hideBar();
       ;
 
     cp5.begin();

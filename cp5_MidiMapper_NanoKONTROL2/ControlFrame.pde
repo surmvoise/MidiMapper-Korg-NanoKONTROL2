@@ -29,5 +29,7 @@ class ControlFrame extends PApplet {
 
   void draw() {
     background(10);
+    
+    rect(20, 20, 20, 20);
   }
 }
