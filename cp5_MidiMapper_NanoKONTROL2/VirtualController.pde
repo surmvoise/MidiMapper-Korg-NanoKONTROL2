@@ -58,13 +58,14 @@ class NK2 {
 
 
     Group nk2Group = cp5.addGroup("nanoKONTROL2")
-      .setPosition(10, 10)
+      .setPosition(0, 0)
+      //.setPosition(-cSize/2, -cSize/2)
       .setSize(w, h)
       .setBackgroundHeight(h)
       .setBackgroundColor(color(255, 50))
       .moveTo("nanoKONTROL2")
       .hideBar();
-      ;
+    ;
 
     cp5.begin();
 
