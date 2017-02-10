@@ -8,7 +8,7 @@ class ControlFrame extends PApplet {
 
   NK2 nk2;
 
-    public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
+  public ControlFrame(PApplet _parent, int _w, int _h, String _name) {
     super();   
     parent = _parent;
     w=_w;
@@ -19,7 +19,7 @@ class ControlFrame extends PApplet {
   public void settings() {
     size(w, h);
   }
-   
+
   public void setup() {
     surface.setLocation(displayWidth-w, displayHeight-h-20);
     cp5 = new ControlP5(this);
@@ -27,9 +27,16 @@ class ControlFrame extends PApplet {
     nk2 = new NK2(cp5, new MidiMapper(this), w, h);
   }
 
+  void toggleLabelVisibility(boolean theFlag) {
+    if (theFlag) nk2.labelVisibility = true;
+    else nk2.labelVisibility = false;
+    println("toggled Labels");
+  }
+
   void draw() {
     background(10);
-    
+    if (nk2.labelVisibility) fill(255, 0, 0);
+    else fill(0, 255, 0);
     rect(20, 20, 20, 20);
   }
 }

@@ -67,8 +67,10 @@ class NK2 {
       .hideBar();
     ;
 
-    cp5.addToggle("Labels")
+    cp5.addToggle("toggleLabelVisibility")
+      .setLabel("Labels")
       .setSize(cSize, cSize)
+      .setPosition(layoutX[0], layoutY[0])
       .moveTo("nanoKONTROL2")
       ;
 
