@@ -31,12 +31,24 @@ class ControlFrame extends PApplet {
     if (theFlag) nk2.labelVisibility = true;
     else nk2.labelVisibility = false;
     println("toggled Labels");
+
+    if (theFlag) {
+      cp5.getGroup("nanoKONTROL2")
+        .getController("r1")
+        .setLabelVisible(true)
+        ;
+    } else {
+      cp5.getGroup("nanoKONTROL2")
+        .getController("r1")
+        .setLabelVisible(false)
+        ;
+    }
   }
 
   void draw() {
     background(10);
-    if (nk2.labelVisibility) fill(255, 0, 0);
-    else fill(0, 255, 0);
+    if (nk2.labelVisibility) fill( 0, 255, 0);
+    else fill(255, 0, 0);
     rect(20, 20, 20, 20);
   }
 }

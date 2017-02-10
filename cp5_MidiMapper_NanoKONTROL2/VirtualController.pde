@@ -71,6 +71,7 @@ class NK2 {
       .setLabel("Labels")
       .setSize(cSize, cSize)
       .setPosition(layoutX[0], layoutY[0])
+      .setValue(true)
       .moveTo("nanoKONTROL2")
       ;
 
