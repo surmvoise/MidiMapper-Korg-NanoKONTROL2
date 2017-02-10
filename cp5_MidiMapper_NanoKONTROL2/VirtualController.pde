@@ -41,14 +41,14 @@ class NK2 {
      */
     for (int x = 0; x < layoutX.length; x++) {
       for (int y = 0; y < layoutY.length; y++) {
-        layoutX[x] = int(w/(cols+1) * (x+1));
-        layoutY[y] = int(h/(rows+1) * (y+1));
+        layoutX[x] = int(w/(cols+1) * (x+1)) - cSize/2;
+        layoutY[y] = int(h/(rows+1) * (y+1)) - cSize/2;
       }
     }
 
 
 
-    cp5.setPosition(0, 0); // serves like rectmode CENTER
+    //cp5.setPosition(0, 0); // serves like rectmode CENTER
 
     //cp5.setPosition(-cSize/2, -cSize/2); // serves like rectmode CENTER
     // I'd like to align all the labels at once to the center, but don't know how
@@ -66,6 +66,11 @@ class NK2 {
       .moveTo("nanoKONTROL2")
       .hideBar();
     ;
+
+    cp5.addToggle("Labels")
+      .setSize(cSize, cSize)
+      .moveTo("nanoKONTROL2")
+      ;
 
     cp5.begin();
 
